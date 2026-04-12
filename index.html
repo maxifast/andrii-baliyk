@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Андрей Балюк | Когнитивно-поведенческая психотерапия</title>
+    <meta name="description" content="Когнитивно-поведенческая психотерапия онлайн. Избавьтесь от панических атак, тревоги, страхов и эмоциональных расстройств с помощью научно обоснованных методов.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-orbit"></div>
+            <div class="preloader-orbit"></div>
+            <div class="preloader-orbit"></div>
+            <span class="preloader-text">AB</span>
+        </div>
+    </div>
+
+    <!-- Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <div class="logo-wrapper">
+                    <span class="logo-text">Андрей<span class="logo-accent">Балюк</span></span>
+                    <span class="logo-tagline">Психолог</span>
+                </div>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#about" class="nav-link">Обо мне</a>
+                <a href="#metodologia" class="nav-link">Методология</a>
+                <a href="#consulta" class="nav-link">Консультация</a>
+                <a href="#historias" class="nav-link">Отзывы</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#diplomas" class="nav-link">Дипломы</a>
+                <a href="#contacto" class="nav-link nav-link-cta">Контакт</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge" data-animate="fade-up">Когнитивно-поведенческая психотерапия</div>
+                <h1 class="hero-title" data-animate="fade-up" data-delay="0.1">
+                    <span class="hero-line">Измени свой</span>
+                    <span class="hero-line hero-line-accent">разум</span>
+                    <span class="hero-line">верни свою жизнь</span>
+                </h1>
+                <p class="hero-subtitle" data-animate="fade-up" data-delay="0.2">
+                    Более 5 лет я помогаю людям успешно избавляться от панических атак, ВСД, тревоги и страхов с помощью научно обоснованных методов психотерапии.
+                </p>
+                <div class="hero-actions" data-animate="fade-up" data-delay="0.3">
+                    <a href="#consulta" class="btn btn-primary">
+                        <span>Записаться на консультацию</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#about" class="btn btn-ghost">Узнать больше</a>
+                </div>
+                <div class="hero-stats" data-animate="fade-up" data-delay="0.4">
+                    <div class="hero-stat">
+                        <span class="stat-number" data-count="500">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Клиентов</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="stat-number" data-count="5">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Лет опыта</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="stat-number" data-count="98">0</span><span class="stat-plus">%</span>
+                        <span class="stat-label">Удовлетворённость</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-portrait" data-animate="fade-left" data-delay="0.2">
+                <div class="portrait-glow"></div>
+                <img src="assets/images/andrei-hero.png" alt="Андрей Балюк — Психолог" class="portrait-image">
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
+            </div>
+            <span>Листайте</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section section-about" id="about">
+        <div class="container">
+            <div class="about-header" data-animate="fade-up">
+                <div class="section-label">Обо мне</div>
+                <h2 class="section-title">Андрей Балюк</h2>
+                <p class="section-subtitle">Психотерапевт когнитивно-поведенческого направления</p>
+            </div>
+            <div class="about-tiles">
+                <div class="about-tile" data-animate="fade-up" data-delay="0.1">
+                    <div class="tile-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <h3 class="tile-title">Немедицинский подход</h3>
+                    <p class="tile-text">Я не ставлю психиатрические диагнозы и не использую фармакологию. Мы работаем исключительно психологическими инструментами.</p>
+                </div>
+                <div class="about-tile" data-animate="fade-up" data-delay="0.15">
+                    <div class="tile-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h3 class="tile-title">Фокус на решении</h3>
+                    <p class="tile-text">Когнитивно-поведенческая терапия рассматривает невроз как обратимое эмоциональное нарушение. Это не приговор, а состояние, которое мы успешно корректируем.</p>
+                </div>
+                <div class="about-tile" data-animate="fade-up" data-delay="0.2">
+                    <div class="tile-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3 class="tile-title">Доказанная эффективность</h3>
+                    <p class="tile-text">Я использую метод, который является мировым лидером по результативности в психотерапии.</p>
+                </div>
+                <div class="about-tile" data-animate="fade-up" data-delay="0.25">
+                    <div class="tile-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <h3 class="tile-title">Онлайн без границ</h3>
+                    <p class="tile-text">Помогаю клиентам возвращать качество жизни, находясь на связи с любой точкой мира.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="section section-methodology" id="metodologia">
+        <canvas id="methodCanvas"></canvas>
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <div class="section-label">Методология</div>
+                <h2 class="section-title">Когнитивно-поведенческая терапия</h2>
+                <p class="section-description">
+                    С помощью когнитивно-поведенческой психотерапии любой человек способен не только идентифицировать
+                    дисфункциональные привычки мышления, но и изменить их на более реалистичные,
+                    что позволяет избавляться от эмоциональных расстройств и поведенческих нарушений.
+                </p>
+            </div>
+
+            <div class="methodology-founders">
+                <div class="founder-card" data-animate="fade-up" data-delay="0.1">
+                    <div class="founder-photo">
+                        <img src="assets/images/aaron-beck.jpg" alt="Аарон Бек">
+                    </div>
+                    <h3 class="founder-name">Аарон Бек</h3>
+                    <p class="founder-role">Основатель когнитивной терапии</p>
+                    <p class="founder-quote">&laquo;Автоматические негативные мысли искажают наше восприятие реальности&raquo;</p>
+                </div>
+                <div class="founder-card" data-animate="fade-up" data-delay="0.2">
+                    <div class="founder-photo">
+                        <img src="assets/images/albert-ellis.jpg" alt="Альберт Эллис">
+                    </div>
+                    <h3 class="founder-name">Альберт Эллис</h3>
+                    <p class="founder-role">Основатель рационально-эмоционально-поведенческой терапии</p>
+                    <p class="founder-quote">&laquo;Нас расстраивают не события, а наши убеждения о них&raquo;</p>
+                </div>
+            </div>
+
+            <div class="methodology-process" data-animate="fade-up" data-delay="0.3">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <h3>Идентификация</h3>
+                    <p>Выявляем дисфункциональные паттерны мышления</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <h3>Анализ</h3>
+                    <p>Оцениваем иррациональные убеждения и их эмоциональное воздействие</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <h3>Реструктуризация</h3>
+                    <p>Заменяем мысли на более реалистичные альтернативы</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <h3>Трансформация</h3>
+                    <p>Закрепляем новые здоровые ментальные привычки</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Demo Section -->
+    <section class="section section-ai" id="ai-demo">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <div class="section-label">Искусственный интеллект</div>
+                <h2 class="section-title">ИИ в действии</h2>
+                <p class="section-description">
+                    Посмотрите, как искусственный интеллект анализирует паттерны мышления в реальном времени.
+                    Эта технология дополняет профессиональный терапевтический подход.
+                </p>
+            </div>
+
+            <div class="ai-demo-container" data-animate="fade-up" data-delay="0.2">
+                <div class="ai-demo-window">
+                    <div class="ai-window-header">
+                        <div class="ai-window-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <span class="ai-window-title">Когнитивный анализ ИИ</span>
+                        <div class="ai-status">
+                            <span class="ai-status-dot"></span>
+                            <span>Онлайн</span>
+                        </div>
+                    </div>
+                    <div class="ai-chat" id="aiChat">
+                        <div class="ai-message ai-message-system">
+                            <div class="ai-avatar">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M6 10v1a6 6 0 0 0 12 0v-1"/><path d="M12 18v4"/><path d="M8 22h8"/></svg>
+                            </div>
+                            <div class="ai-bubble">
+                                <p>Здравствуйте. Я ассистент когнитивного анализа. Выберите мысль для анализа:</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-input-area">
+                        <div class="ai-suggestions" id="aiSuggestions">
+                            <button class="ai-suggestion" data-thought="Никогда не смогу побороть свою тревогу">&laquo;Никогда не смогу побороть свою тревогу&raquo;</button>
+                            <button class="ai-suggestion" data-thought="Если я почувствую панику, случится что-то ужасное">&laquo;Если я почувствую панику, случится что-то ужасное&raquo;</button>
+                            <button class="ai-suggestion" data-thought="Я слабый, раз не могу контролировать свои эмоции">&laquo;Я слабый, раз не могу контролировать эмоции&raquo;</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ai-info-cards">
+                    <div class="ai-info-card">
+                        <div class="ai-info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                        </div>
+                        <h4>Анализ искажений</h4>
+                        <p>Автоматическое определение паттернов искажённого мышления</p>
+                    </div>
+                    <div class="ai-info-card">
+                        <div class="ai-info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <h4>Мгновенная обратная связь</h4>
+                        <p>Терапевтические ответы на основе КПТ в реальном времени</p>
+                    </div>
+                    <div class="ai-info-card">
+                        <div class="ai-info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h4>Дополнение к терапии</h4>
+                        <p>ИИ дополняет, но никогда не заменяет профессиональную терапию</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Section -->
+    <section class="section section-consultation" id="consulta">
+        <div class="container">
+            <div class="consultation-grid">
+                <div class="consultation-content" data-animate="fade-right">
+                    <div class="section-label">Консультация</div>
+                    <h2 class="section-title">Персональная консультация по Skype</h2>
+                    <p class="section-description">
+                        Консультации проходят анонимно, через доступный вам мессенджер.
+                        Точную дату необходимо согласовать заранее.
+                    </p>
+                    <div class="consultation-features">
+                        <div class="consult-feature">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Индивидуальная сессия 55 минут</span>
+                        </div>
+                        <div class="consult-feature">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Полная конфиденциальность и анонимность</span>
+                        </div>
+                        <div class="consult-feature">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Доступно из любой точки мира</span>
+                        </div>
+                        <div class="consult-feature">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Метод, основанный на научных данных</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="consultation-card" data-animate="fade-left">
+                    <div class="price-card">
+                        <div class="price-card-header">
+                            <span class="price-label">Разовая консультация</span>
+                            <div class="price-amount">
+                                <span class="price-currency">&euro;</span>
+                                <span class="price-number">45</span>
+                                <span class="price-period">/сессия</span>
+                            </div>
+                            <span class="price-duration">55 минут</span>
+                        </div>
+                        <div class="price-card-body">
+                            <a href="#contacto" class="btn btn-primary btn-full">
+                                <span>Записаться</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                            <p class="price-note">На первой консультации мы определим цели и критерии успеха</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="section section-stories" id="historias">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <div class="section-label">Истории успеха</div>
+                <h2 class="section-title">Отзывы клиентов</h2>
+                <p class="section-description">Люди, которые изменили свою жизнь с помощью когнитивно-поведенческой терапии</p>
+            </div>
+
+            <div class="stories-grid">
+                <div class="story-card" data-animate="fade-up" data-delay="0.1">
+                    <div class="story-quote">&ldquo;</div>
+                    <div class="story-tag">Панические атаки</div>
+                    <p class="story-text">
+                        Годами я жила в ужасе от панических атак. Каждое учащённое сердцебиение казалось мне неотложной ситуацией.
+                        После работы с Андреем я поняла механизм паники. За несколько сессий научилась прерывать замкнутый
+                        круг страха. Сегодня я путешествую одна, вожу машину и живу без этой постоянной тени.
+                    </p>
+                    <div class="story-author">
+                        <div class="story-avatar">М</div>
+                        <div>
+                            <span class="story-name">Мария Л.</span>
+                            <span class="story-location">Мадрид, Испания</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card" data-animate="fade-up" data-delay="0.2">
+                    <div class="story-quote">&ldquo;</div>
+                    <div class="story-tag">Фобии</div>
+                    <p class="story-text">
+                        Социальная фобия не позволяла мне выступать на совещаниях, ходить на мероприятия и даже звонить по телефону.
+                        С помощью когнитивно-поведенческой терапии я обнаружил, что мои катастрофические мысли не соответствуют реальности.
+                        Теперь я провожу презентации на работе и наслаждаюсь общением.
+                    </p>
+                    <div class="story-author">
+                        <div class="story-avatar">К</div>
+                        <div>
+                            <span class="story-name">Карлос Р.</span>
+                            <span class="story-location">Буэнос-Айрес, Аргентина</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card" data-animate="fade-up" data-delay="0.3">
+                    <div class="story-quote">&ldquo;</div>
+                    <div class="story-tag">Ипохондрия</div>
+                    <p class="story-text">
+                        Каждая головная боль была опухолью, каждое учащённое сердцебиение — инфарктом. Я часами сидела в Google, ища симптомы.
+                        Андрей научил меня распознавать когнитивные искажения, подпитывающие ипохондрию.
+                        Сегодня я доверяю своему телу и не живу заложницей своих страхов.
+                    </p>
+                    <div class="story-author">
+                        <div class="story-avatar">А</div>
+                        <div>
+                            <span class="story-name">Анна П.</span>
+                            <span class="story-location">Барселона, Испания</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card" data-animate="fade-up" data-delay="0.4">
+                    <div class="story-quote">&ldquo;</div>
+                    <div class="story-tag">Тревога и депрессия</div>
+                    <p class="story-text">
+                        Тревога парализовала меня, а депрессия отнимала желание жить. Казалось, что я в ловушке без выхода.
+                        Терапия с Андреем дала мне конкретные инструменты для изменения паттернов мышления.
+                        Я вернул энергию, цели и желание жить полной жизнью.
+                    </p>
+                    <div class="story-author">
+                        <div class="story-avatar">Д</div>
+                        <div>
+                            <span class="story-name">Дмитрий М.</span>
+                            <span class="story-location">Мехико, Мексика</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-faq" id="faq">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <div class="section-label">Частые вопросы</div>
+                <h2 class="section-title">Ответы на ваши вопросы</h2>
+            </div>
+
+            <div class="faq-list" data-animate="fade-up" data-delay="0.1">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Как справляться с неконтролируемым гневом и вспышками агрессии?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Гнев — это сигнал, а не проблема сама по себе. Временные способы (выйти из комнаты, глубоко подышать) помогают в моменте, но не убирают причину. В терапии мы работаем на опережение: находим истинные триггеры вашей злости и учимся выражать чувства экологично, без риска для отношений с близкими.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Сколько сеансов нужно, чтобы избавиться от страхов?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Универсального ответа нет: всё зависит от природы ваших страхов и глубины проблемы. Иногда достаточно одной-двух встреч, а в некоторых случаях требуется более длительная работа. На первой консультации мы чётко определяем запрос и критерии, по которым вы поймёте, что проблема решена.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>В последнее время я стала очень раздражительной. Что делать?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Раздражительность часто возникает из-за накопленного стресса (перемены в жизни, выгорание) или внутренних конфликтов (подавленные эмоции, неумение отстаивать свои границы). Нередко за раздражением скрывается негласный запрет на выражение злости. На консультации мы найдём корень проблемы и подберём стратегии для восстановления эмоционального баланса.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Как понять, что я проживаю кризис?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Кризисы сопровождаются потерей жизненных опор, желанием дистанцироваться от людей, ощущением нехватки времени и общим упадком сил. Если это про вас — не пугайтесь. Любой кризис скрывает огромный потенциал для роста. В терапии мы вместе осмыслим происходящее, выстроим новые опоры и поможем вам выйти из этого состояния обновлённым.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Проблемы со сном: боюсь не уснуть и на следующий день быть разбитой.</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Страх перед бессонницей только усиливает тревогу, образуя замкнутый круг. Чаще всего такое невротическое состояние имеет глубокие психологические причины. Общие советы здесь не работают. На консультации мы разберём истинные причины вашей тревожности и создадим условия для здорового сна.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Не могу принять свою внешность, постоянно сравниваю себя с идеалом.</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Идеалы часто навязаны извне, а привычка сравнивать себя с другими сильно бьёт по самооценке. Мы забываем, что именно индивидуальность делает нас привлекательными. В терапии мы смещаем фокус с жёсткой самокритики на принятие. Вы научитесь видеть свои достоинства и относиться к себе с уважением и заботой.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Партнёр отказывается идти к семейному психологу. Что делать?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Обращение к специалисту часто вызывает бессознательное сопротивление — это страх столкнуться с проблемами лицом к лицу. Если партнёр пока не готов, начните с себя. Индивидуальная терапия поможет вам изменить собственные реакции и паттерны поведения. Очень часто позитивные изменения в одном партнёре становятся мощным стимулом для второго присоединиться к работе.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diplomas Section -->
+    <section class="section section-diplomas" id="diplomas">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <div class="section-label">Образование</div>
+                <h2 class="section-title">Дипломы и сертификаты</h2>
+                <p class="section-description">Специализированное образование в области когнитивно-поведенческой психотерапии, подтверждённое признанными учреждениями.</p>
+            </div>
+
+            <div class="diplomas-grid" data-animate="fade-up" data-delay="0.2">
+                <div class="diploma-card" data-cert="assets/images/cert1.png">
+                    <div class="diploma-image">
+                        <img src="assets/images/cert1.png" alt="Сертификат — Основы КПТ">
+                        <div class="diploma-overlay">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                        </div>
+                    </div>
+                    <h3>Основы КПТ: теория и практика</h3>
+                    <p>Ассоциация когнитивно-поведенческой психотерапии</p>
+                    <a href="assets/images/cert1.png" target="_blank" class="diploma-link">Смотреть сертификат &rarr;</a>
+                </div>
+                <div class="diploma-card" data-cert="assets/images/cert2.png">
+                    <div class="diploma-image">
+                        <img src="assets/images/cert2.png" alt="Сертификат — Введение в терапию">
+                        <div class="diploma-overlay">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                        </div>
+                    </div>
+                    <h3>Введение в терапию. Терапевтические отношения</h3>
+                    <p>Ассоциация когнитивно-поведенческой психотерапии</p>
+                    <a href="assets/images/cert2.png" target="_blank" class="diploma-link">Смотреть сертификат &rarr;</a>
+                </div>
+                <div class="diploma-card" data-cert="assets/images/cert3.png">
+                    <div class="diploma-image">
+                        <img src="assets/images/cert3.png" alt="Сертификат — Реструктуризация убеждений">
+                        <div class="diploma-overlay">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                        </div>
+                    </div>
+                    <h3>Концептуализация и реструктуризация убеждений</h3>
+                    <p>Ассоциация когнитивно-поведенческой психотерапии</p>
+                    <a href="assets/images/cert3.png" target="_blank" class="diploma-link">Смотреть сертификат &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Diploma Lightbox -->
+            <div class="diploma-lightbox" id="diplomaLightbox">
+                <button class="lightbox-close" aria-label="Закрыть">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+                <img src="" alt="Сертификат" id="lightboxImg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section-contact" id="contacto">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-content" data-animate="fade-right">
+                    <div class="section-label">Контакт</div>
+                    <h2 class="section-title">Начните свою трансформацию</h2>
+                    <p class="section-description">
+                        Первый шаг к переменам — самый важный.
+                        Напишите мне, и мы вместе наметим путь к вашему благополучию.
+                    </p>
+                    <div class="contact-socials">
+                        <a href="https://www.instagram.com/psy.andrei.baliuk?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-link" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://t.me/andrei_baliuk_psy" target="_blank" class="social-link" aria-label="Telegram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.2 4.4L2.4 10.8c-.6.2-.6 1.1 0 1.3l4.5 1.7 1.7 5.5c.1.4.6.6.9.3l2.6-2.1 4.5 3.3c.5.3 1.1 0 1.2-.5L21.9 5.2c.2-.6-.3-1-.7-.8z"/><path d="M8.9 13.8l8.2-5.7"/></svg>
+                            <span>Telegram</span>
+                        </a>
+                        <a href="https://www.youtube.com/@andrei_baliuk_psiholog" target="_blank" class="social-link" aria-label="YouTube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                            <span>YouTube</span>
+                        </a>
+                        <a href="https://www.tiktok.com/@andreib7282" target="_blank" class="social-link" aria-label="TikTok">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+                            <span>TikTok</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper" data-animate="fade-left">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Имя</label>
+                            <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="ваш@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Кратко опишите вашу ситуацию..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Отправить сообщение</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">Андрей<span class="logo-accent">Балюк</span></span>
+                    <p>Когнитивно-поведенческая психотерапия онлайн</p>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2026 Андрей Балюк. Все права защищены.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Telegram Floating Button -->
+    <a href="https://t.me/andrei_baliuk_psy" target="_blank" class="telegram-float" aria-label="Написать в Telegram">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        <span class="telegram-float-pulse"></span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/three-scene.js"></script>
+    <script src="js/ai-demo.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>
