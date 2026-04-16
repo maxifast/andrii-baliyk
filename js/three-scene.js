@@ -7,6 +7,10 @@
     const heroCanvas = document.getElementById('heroCanvas');
     if (!heroCanvas) return;
 
+    // Device detection for performance tuning
+    const isMobile = window.innerWidth < 768;
+    const isLowPower = isMobile || navigator.hardwareConcurrency <= 4;
+
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 30;
@@ -14,18 +18,20 @@
     const renderer = new THREE.WebGLRenderer({
         canvas: heroCanvas,
         alpha: true,
-        antialias: true
+        antialias: !isMobile,
+        powerPreference: 'high-performance'
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
 
     // Mouse tracking
     const mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
 
     // --- Particle system: Neural network nodes ---
-    const PARTICLE_COUNT = 180;
+    const PARTICLE_COUNT = isMobile ? 60 : 180;
     const FIELD_SIZE = 28;
-    const CONNECTION_DISTANCE = 6;
+    const CONNECTION_DISTANCE = isMobile ? 5 : 6;
+    const CONNECTION_UPDATE_FRAMES = isMobile ? 8 : 3;
 
     // Create particles
     const particlesGeometry = new THREE.BufferGeometry();
@@ -196,9 +202,19 @@
     // --- Animation loop ---
     let time = 0;
     let frame = 0;
+    let isVisible = true;
+
+    // Stop rendering when hero is off-screen (huge perf win on scroll)
+    if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+            isVisible = entries[0].isIntersecting;
+        }, { threshold: 0 });
+        io.observe(heroCanvas);
+    }
 
     function animate() {
         requestAnimationFrame(animate);
+        if (!isVisible) return;
         time += 0.016;
         frame++;
 
@@ -237,8 +253,8 @@
         }
         particlesGeometry.attributes.position.needsUpdate = true;
 
-        // Update connections every 3 frames for performance
-        if (frame % 3 === 0) {
+        // Update connections with adaptive frequency
+        if (frame % CONNECTION_UPDATE_FRAMES === 0) {
             updateConnections();
         }
 
@@ -278,13 +294,13 @@
         const mRenderer = new THREE.WebGLRenderer({
             canvas: methodCanvas,
             alpha: true,
-            antialias: true
+            antialias: !isMobile
         });
         mRenderer.setSize(methodCanvas.parentElement.offsetWidth, methodCanvas.parentElement.offsetHeight);
-        mRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        mRenderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
 
         // Floating DNA-like helix
-        const helixParticles = 120;
+        const helixParticles = isMobile ? 60 : 120;
         const helixGeo = new THREE.BufferGeometry();
         const helixPos = new Float32Array(helixParticles * 3);
         const helixSizes = new Float32Array(helixParticles);
@@ -352,8 +368,20 @@
         const helixPoints = new THREE.Points(helixGeo, helixMat);
         mScene.add(helixPoints);
 
+        // Only render methodology canvas when visible
+        let mVisible = false;
+        if ('IntersectionObserver' in window) {
+            const mio = new IntersectionObserver((entries) => {
+                mVisible = entries[0].isIntersecting;
+            }, { threshold: 0 });
+            mio.observe(methodCanvas);
+        } else {
+            mVisible = true;
+        }
+
         function animateMethod() {
             requestAnimationFrame(animateMethod);
+            if (!mVisible) return;
             helixMat.uniforms.uTime.value += 0.016;
             helixPoints.rotation.y += 0.002;
             mRenderer.render(mScene, mCamera);

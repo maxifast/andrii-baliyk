@@ -1771,37 +1771,74 @@ body:hover .cursor-follower {
         z-index: 1001;
     }
 
+    .hero {
+        height: auto;
+        min-height: 100vh;
+    }
+
     .hero-portrait {
         position: relative;
         right: auto;
+        top: auto;
         bottom: auto;
-        width: 60%;
-        max-width: 350px;
-        margin: 0 auto;
+        width: 80%;
+        max-width: 320px;
+        margin: 0 auto 32px;
     }
 
     .hero-container {
         flex-direction: column;
         text-align: center;
-        padding-top: 100px;
+        padding: 100px 20px 60px;
         height: auto;
+        gap: 16px;
     }
 
     .hero-content {
         text-align: center;
         max-width: 100%;
+        padding-bottom: 0;
+    }
+
+    .hero-title {
+        font-size: clamp(40px, 11vw, 56px) !important;
+        letter-spacing: -1.5px;
+        margin-bottom: 20px;
+    }
+
+    .hero-badge {
+        margin-bottom: 20px;
+        font-size: 12px;
+        padding: 6px 16px;
     }
 
     .hero-subtitle {
-        margin: 0 auto 40px;
+        font-size: 16px;
+        margin: 0 auto 32px;
     }
 
     .hero-actions {
         justify-content: center;
+        margin-bottom: 32px;
     }
 
     .hero-stats {
         justify-content: center;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+
+    /* On mobile, photo goes BEFORE text (order: -1) */
+    .hero-portrait {
+        order: -1;
+    }
+
+    /* Force visibility on mobile in case animations fail */
+    .hero-portrait[data-animate] {
+        opacity: 1 !important;
+        transform: none !important;
     }
 
     .about-tiles {

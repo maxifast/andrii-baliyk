@@ -165,43 +165,46 @@
         });
     });
 
-    // ===== HERO PIN + ABOUT OVERLAY EFFECT =====
+    // ===== HERO PIN + ABOUT OVERLAY EFFECT (desktop only — too expensive on mobile) =====
+    const isMobileDevice = window.innerWidth < 768 || 'ontouchstart' in window;
 
-    // Pin hero while About scrolls over it
-    ScrollTrigger.create({
-        trigger: '.hero',
-        start: 'top top',
-        endTrigger: '.section-about',
-        end: 'top top',
-        pin: true,
-        pinSpacing: false
-    });
-
-    // Fade & scale hero content as About approaches
-    gsap.to('.hero-content', {
-        scale: 0.92,
-        opacity: 0,
-        y: -40,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '.section-about',
-            start: 'top bottom',
-            end: 'top 20%',
-            scrub: 1
-        }
-    });
-
-    // Hero scroll indicator fades quickly
-    gsap.to('.hero-scroll', {
-        opacity: 0,
-        ease: 'none',
-        scrollTrigger: {
+    if (!isMobileDevice) {
+        // Pin hero while About scrolls over it
+        ScrollTrigger.create({
             trigger: '.hero',
             start: 'top top',
-            end: '+=200',
-            scrub: true
-        }
-    });
+            endTrigger: '.section-about',
+            end: 'top top',
+            pin: true,
+            pinSpacing: false
+        });
+
+        // Fade & scale hero content as About approaches
+        gsap.to('.hero-content', {
+            scale: 0.92,
+            opacity: 0,
+            y: -40,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.section-about',
+                start: 'top bottom',
+                end: 'top 20%',
+                scrub: 1
+            }
+        });
+
+        // Hero scroll indicator fades quickly
+        gsap.to('.hero-scroll', {
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                end: '+=200',
+                scrub: true
+            }
+        });
+    }
 
     // 3D canvas slight scale-down
     gsap.to('#heroCanvas', {
