@@ -1769,6 +1769,9 @@ body:hover .cursor-follower {
     .nav-toggle {
         display: flex;
         z-index: 1001;
+        margin-left: auto;
+        margin-right: -8px;
+        padding: 8px 8px 8px 10px;
     }
 
     .hero {
@@ -1993,7 +1996,7 @@ body:hover .cursor-follower {
 @media (max-width: 768px) {
     .lang-switcher {
         margin-left: auto;
-        margin-right: 12px;
+        margin-right: 8px;
     }
 }
 
